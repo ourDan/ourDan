@@ -1,0 +1,45 @@
+﻿# 对于元素 "宽""高"占据空间的测量 
+
+标签（空格分隔）： 未分类
+
+---
+**怎么说呢，这个就是一个小总结吧，每次对于不同的高度都是一个方法去猜，不如抽空总结下 **
+##常见的玩意儿
+
+### width
+    HTML DOM Style 对象的属性 
+    /*也就是说，这个属性反馈的是 我们 通过 css 设置元素上面进行一些样式属性在反应在dom节点里*/
+    举例 ： 如果说没有设置width的话，在dom里面 node.style.width = ""，/* 对了，既然是直接对 html style 进行修改 ，记得加单位 ；同时这个属性返回的是number类型的值，在一些判断什么的时候，可别吃瘪了 */
+    
+####再就是关于 content-box模型 boder-box模型的区别什么的，这里就不用再废话
+
+### clientWidth
+element.clientWidth 属性 表示 元素的内部宽度，以px记。宽度包括（内边距，但是不包括垂直滚动条，边框和外边距   /* 给出的值 是个int,需要float的话，看element.getBoundingClientRect()   ）*/
+
+使用举例：
+网页可见区域宽： document.body.clientWidth;
+网页可见区域高： document.body.clientHeight;
+
+### offsetWidth
+返回元素的高度和宽度，以px记。这是非标准的但却得到很好支持的属性。offset比client多了border的宽度 ,也不包括滚动条 ；
+offsetWidth = width + padding + border
+offsetHeight = width + padding + border
+
+
+
+### srcollWidth
+返回元素的完整的高度和宽度，以像素为单位。当一个元素拥有滚动条时（比如由于 CSS 的 overflow 属性），这些属性和 offsetHeight 与 offsetWidth 不同，offsetHeight 和 offsetWidth 只是报告元素的可见部分的大小。这是非标准的但却得到很好支持的属性。
+
+
+
+### getBoundingRect().width 
+额 ie9以下没兼容这个属性
+
+
+
+
+
+
+最后 直到写完这个 准备吃饭的时候，我才发现MDN上面有个这个，总结的差距还不小，
+https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
+
